@@ -15,6 +15,7 @@ public class Command : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Test Comment
         CodeManagerControllerScript = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
         Debug.Log(CodeManagerControllerScript);
     }

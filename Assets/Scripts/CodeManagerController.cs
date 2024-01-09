@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CodeManagerController : MonoBehaviour
 {
+    public GameObject gameObjectPlayer;
+    public GameObject[] gameObjectPlayers;
     public GameObject gameObjectIs;
     public GameObject[] gameObjectsIs;
     public GameObject gameObjectRock;
@@ -19,7 +22,7 @@ public class CodeManagerController : MonoBehaviour
     void Start()
     {
         // IsControllerScript = GameObject.FindWithTag("IsComand").GetComponent<IsController>();
-        playerControllersScript = GameObject.FindWithTag("PlayerMove").GetComponent<Player>();
+        playerControllersScript = GameObject.FindWithTag("PlayerPrefab").GetComponent<Player>();
         gameObjectsIs = GameObject.FindGameObjectsWithTag("IsComand");
         activate = true;
 
@@ -87,7 +90,31 @@ public class CodeManagerController : MonoBehaviour
             {
                 BarrelIsRock();
             }
+
+
+            if(line[0] == "You" && line[1] == "Is"&& line[2] == "Rock")
+            {
+                //move
+               YouIsRock();
+            }
+
+            if(line[0] == "Player" && line[1] == "Is"&& line[2] == "You")
+            {
+                ///not done;
+                PlayerIsYou();
+            }
+
+            if(line[0] == "Player" && line[1] == "Is"&& line[2] == "Rock")
+            {
+                PlayerIsRock();
+            }
+            if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Player")
+            {
+                RockIsPlayer();
+            }
+            
         }
+        
         // for(int i = 0; i < line.Count ; i++)
         // {
         //     Debug.Log(line[i]);
@@ -161,4 +188,47 @@ public class CodeManagerController : MonoBehaviour
         }
     }
 
+    void PlayerIsRock()
+    {
+        gameObjectRocks = GameObject.FindGameObjectsWithTag("Rock");
+        foreach(GameObject rock in gameObjectRocks)
+        {
+            Vector3 gameObjectRocksPosition = new Vector3(rock.transform.position.x,rock.transform.position.y,rock.transform.position.z);
+            Destroy(rock);
+            Instantiate(gameObjectPlayer,gameObjectRocksPosition,gameObjectPlayer.transform.rotation);
+        }
+    }
+    void RockIsPlayer()
+    {
+        gameObjectPlayers = GameObject.FindGameObjectsWithTag("PlayerPrefab");
+        foreach (GameObject playerPrefab in gameObjectPlayers)
+        {
+            Vector3 gameObjectPlayersPosition = new Vector3(playerPrefab.transform.position.x,playerPrefab.transform.position.y,playerPrefab.transform.position.z);
+            Destroy(playerPrefab);
+            Instantiate(gameObjectRock,gameObjectPlayersPosition,gameObjectRock.transform.rotation);
+        }
+    }
+    void YouIsRock()
+    {
+        gameObjectRocks = GameObject.FindGameObjectsWithTag("Rock");
+        foreach(GameObject rock in gameObjectRocks)
+        {
+            rock.AddComponent<Player>();
+            Player scriptPlayerInRock = rock.GetComponent<Player>();
+            scriptPlayerInRock.canMove = true;
+        }
+
+    }
+
+    void PlayerIsYou()
+    {
+        Player playerScript = GameObject.Find("Player").GetComponent<Player>();
+        playerScript.canMove = true;
+    }
+
+    void PlayerWontMove()
+    {
+        Player playerScript = GameObject.Find("Player").GetComponent<Player>();
+        playerScript.canMove = false;
+    }
 }

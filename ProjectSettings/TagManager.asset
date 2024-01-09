@@ -12,6 +12,7 @@ TagManager:
   - BarrelComand
   - Rock
   - RockComand
+  - PlayerPrefab
   layers:
   - Default
   - TransparentFX

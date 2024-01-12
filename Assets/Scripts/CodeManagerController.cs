@@ -8,23 +8,30 @@ public class CodeManagerController : MonoBehaviour
 {
     public GameObject gameObjectPlayer;
     public GameObject[] gameObjectPlayers;
-    public GameObject gameObjectIs;
-    public GameObject[] gameObjectsIs;
+    public GameObject gameObjectCommand;
+    public GameObject[] gameObjectsCommand;
     public GameObject gameObjectRock;
     public GameObject[] gameObjectRocks;
     public GameObject gameObjectBarrel;
     public GameObject[] gameObjectBarrels;
+    public GameObject[]  gameObjectsWall;
     private IsController IsControllerScript;
     private IsController[] IsControllerScripts;
     private Player playerControllersScript;
-    bool activate ;
+    // bool activate ;
     // Start is called before the first frame update
     void Start()
     {
         // IsControllerScript = GameObject.FindWithTag("IsComand").GetComponent<IsController>();
+
+
+
         playerControllersScript = GameObject.FindWithTag("PlayerPrefab").GetComponent<Player>();
-        gameObjectsIs = GameObject.FindGameObjectsWithTag("IsComand");
-        activate = true;
+        gameObjectsCommand = GameObject.FindGameObjectsWithTag("Command");
+        // activate = true;
+
+
+
 
         // find All ObjectIs
         // foreach(GameObject ObjectIs in gameObjectsIs)
@@ -49,33 +56,38 @@ public class CodeManagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(GameObject ObjectIs in gameObjectsIs)
-        {
-            IsControllerScript = ObjectIs.GetComponent<IsController>();
-            if(IsControllerScript.PlayerComandIsTrigger == true && IsControllerScript.YouComandIsTrigger == true)
-            {
-                playerControllersScript.Move(true);
-            }
-            if(IsControllerScript.PlayerComandIsTrigger == false && IsControllerScript.YouComandIsTrigger == false)
-            {
-                playerControllersScript.Move(false);
-                // playerControllersScript.canMove = false;
-            }
-            if(IsControllerScript.RockComandIsTrigger == true && IsControllerScript.BarrelComandIsTrigger == true)
-            {
-                if(activate == true)
-                {
-                    ReplacingStoneWithBarrel();
-                    activate = false;
-                }
+        // foreach(GameObject ObjectIs in gameObjectsIs)
+        // {
+        //     IsControllerScript = ObjectIs.GetComponent<IsController>();
+        //     if(IsControllerScript.PlayerComandIsTrigger == true && IsControllerScript.YouComandIsTrigger == true)
+        //     {
+        //         playerControllersScript.Move(true);
+        //     }
+        //     if(IsControllerScript.PlayerComandIsTrigger == false && IsControllerScript.YouComandIsTrigger == false)
+        //     {
+        //         playerControllersScript.Move(false);
+        //         // playerControllersScript.canMove = false;
+        //     }
+        //     if(IsControllerScript.RockComandIsTrigger == true && IsControllerScript.BarrelComandIsTrigger == true)
+        //     {
+        //         if(activate == true)
+        //         {
+        //             ReplacingStoneWithBarrel();
+        //             activate = false;
+        //         }
 
-            }
-            // if(IsControllerScript.RockComandIsTrigger == false || IsControllerScript.BarrelComandIsTrigger == false)
-            // {
-            //     activate = true;
-            // }
+        //     }
 
-        }
+
+
+
+
+        //     // if(IsControllerScript.RockComandIsTrigger == false || IsControllerScript.BarrelComandIsTrigger == false)
+        //     // {
+        //     //     activate = true;
+        //     // }
+
+        // }
     }
 
     public void Execute(List<string> line)
@@ -112,6 +124,12 @@ public class CodeManagerController : MonoBehaviour
             {
                 RockIsPlayer();
             }
+
+            if(line[0] == "Wall" && line[1] == "Is"&& line[2] == "Push")
+            {
+                WallIsPush();
+            }
+            
             
         }
         
@@ -230,5 +248,18 @@ public class CodeManagerController : MonoBehaviour
     {
         Player playerScript = GameObject.Find("Player").GetComponent<Player>();
         playerScript.canMove = false;
+    }
+    void WallIsPush()
+    {
+        gameObjectsWall = GameObject.FindGameObjectsWithTag("Wall");
+        foreach(GameObject Wall in gameObjectsWall)
+        {
+            Rigidbody m_Rigidbody;
+            m_Rigidbody = Wall.gameObject.GetComponent<Rigidbody>();
+            // turn off FreezePositionX,FreezePositionY,FreezePositionZ
+            m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionX;
+            m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
+            m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
+        }
     }
 }

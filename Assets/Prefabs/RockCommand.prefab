@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297296258519901315}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8088456849114009709}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5795728752908989947
 BoxCollider:
@@ -93,13 +93,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192776936421676080}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8088456849114009709}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7578795743117857285
 BoxCollider:
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aebd8a10f20ee184498be3f52c26df34, type: 3}
       propertyPath: m_Name
-      value: boxRock Variant
+      value: RockCommand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -210,7 +210,7 @@ PrefabInstance:
       addedObject: {fileID: 4579293868170062629}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aebd8a10f20ee184498be3f52c26df34, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7199720603829904358}
+      addedObject: {fileID: -8720234268145460351}
   m_SourcePrefab: {fileID: 100100000, guid: aebd8a10f20ee184498be3f52c26df34, type: 3}
 --- !u!4 &8088456849114009709 stripped
 Transform:
@@ -270,7 +270,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7199720603829904358
+--- !u!114 &-8720234268145460351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,11 +279,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8895779190636563159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faa7cc778bc9c5439887be6dca3d3bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ddc5dc23cabd2e44897e6ccc08be999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   left: {fileID: 0}
   right: {fileID: 0}
   top: {fileID: 0}
   bottom: {fileID: 0}
-  text: Rock
+  text: ROCK
+  gameObjectRock: {fileID: 1802748051870819055, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}

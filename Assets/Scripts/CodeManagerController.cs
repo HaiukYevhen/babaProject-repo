@@ -1,3 +1,5 @@
+using Assets.Scripts.CommandParsers;
+using Assets.Scripts.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +17,6 @@ public class CodeManagerController : MonoBehaviour
     public GameObject gameObjectBarrel;
     public GameObject[] gameObjectBarrels;
     public GameObject[]  gameObjectsWall;
-    private IsController IsControllerScript;
-    private IsController[] IsControllerScripts;
     private Player playerControllersScript;
     // bool activate ;
     // Start is called before the first frame update
@@ -90,7 +90,26 @@ public class CodeManagerController : MonoBehaviour
         // }
     }
 
-    public void Execute(List<string> line)
+	public void ExecuteCommands(List<ICommand> commands)
+    {
+		var parser = ParserBuilder.Instance.GetParser();
+		var executionTrees = parser.Parse(commands);
+
+        foreach (var executionTree in executionTrees)
+        {
+            executionTree.Value.Execute(executionTree);
+		}
+	}
+
+	public void UpdateCommands(List<ICommand> commandsBefore, List<ICommand> commandsAfterLeft, List<ICommand> commandsAfterRight)
+	{
+		//Undo commandsBefore
+
+		//Execute commandsAfterLeft
+		//Execute commandsAfterRight
+	}
+
+	public void Execute(List<string> line)
     {
         if(line.Count == 3)
         {

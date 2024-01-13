@@ -1,9 +1,9 @@
-using System.Collections;
+using Assets.Scripts.CommandParsers;
+using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Command : MonoBehaviour
+public class Command : MonoBehaviour, ICommand
 {
     public Command left;
     public Command right;
@@ -12,8 +12,11 @@ public class Command : MonoBehaviour
     private CodeManagerController CodeManagerControllerScript;
 
     public string text;
-    // Start is called before the first frame update
-    void Start()
+
+	public string Value => text;
+
+	// Start is called before the first frame update
+	void Start()
     {
         //Test Comment
         CodeManagerControllerScript = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
@@ -34,21 +37,17 @@ public class Command : MonoBehaviour
         {
             left = command;
             command.right = this;
-            CodeManagerControllerScript.Execute(GetLineHorizontal());
+            CodeManagerControllerScript.ExecuteCommands(GetLineHorizontal());
         }
     }
     public void LeftTriggerExit(GameObject gameObjectTrigger)
     {
         var command = gameObjectTrigger.GetComponent<Command>();
 
-
         if(command != null)
         {
             left = null;
             command.right = null;
-
-            //PrintLine();
-        //Debug.Log("LeftTriggerExit: "+command.text);
         }
     }
      public void TopTriggerEnter(GameObject gameObjectTrigger)
@@ -58,9 +57,7 @@ public class Command : MonoBehaviour
         {
             top = command;
             command.bottom = this;
-            CodeManagerControllerScript.Execute(GetLineVertical());
-            // PrintLineVertical();
-            ///
+            CodeManagerControllerScript.ExecuteCommands(GetLineVertical());
         }
         
     }
@@ -75,41 +72,50 @@ public class Command : MonoBehaviour
         }
     }
 
-    private List<string> GetLineHorizontal(){
+    private List<ICommand> GetLineHorizontal(){
         Command first = this;
         while (first.left != null)
             first = first.left;
         
-        List<string> line = new List<string>();
+        List<ICommand> line = new List<ICommand>();
 
         Command current = first;
 
         while (current != null){
-            line.Add(current.text);
+            line.Add(current);
             current = current.right;
         }
 
         Debug.Log(string.Join(" -> ", line));
         return line;
     }
-    private List<string> GetLineVertical()
+    private List<ICommand> GetLineVertical()
     {
         Command first = this;
         while(first.top != null)
         {
             first = first.top;
         }
-        List<string> line = new List<string>();
+        List<ICommand> line = new List<ICommand>();
 
         Command current = first; 
 
         while (current != null)
         {
-            line.Add(current.text);
+            line.Add(current);
             current = current.bottom;
         }
         Debug.Log(string.Join(" \\/ ", line));
         return line;
     }
 
+	public virtual void Execute(TreeNode node)
+	{
+
+	}
+
+	public virtual void Undo(TreeNode node)
+	{
+		
+	}
 }

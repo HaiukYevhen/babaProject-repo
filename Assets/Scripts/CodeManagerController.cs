@@ -111,46 +111,52 @@ public class CodeManagerController : MonoBehaviour
 
 	public void Execute(List<string> line)
     {
-        if(line.Count == 3)
-        {
-            if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Barrel")
-            {
-               RockIsBarrel();
-            }
-            if(line[0] == "Barrel" && line[1] == "Is"&& line[2] == "Rock")
-            {
-                BarrelIsRock();
-            }
+        // if(line.Count == 3)
+        // {
+        //     if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Barrel")
+        //     {
+        //        RockIsBarrel();
+        //     }
+        //     if(line[0] == "Barrel" && line[1] == "Is"&& line[2] == "Rock")
+        //     {
+        //         BarrelIsRock();
+        //     }
 
 
-            if(line[0] == "You" && line[1] == "Is"&& line[2] == "Rock")
-            {
-                //move
-               YouIsRock();
-            }
+        //     if(line[0] == "You" && line[1] == "Is"&& line[2] == "Rock")
+        //     {
+        //         //move
+        //        YouIsRock();
+        //     }
 
-            if(line[0] == "Player" && line[1] == "Is"&& line[2] == "You")
-            {
-                ///not done;
-                PlayerIsYou();
-            }
+        //     if(line[0] == "Player" && line[1] == "Is"&& line[2] == "You")
+        //     {
+        //         ///not done;
+        //         PlayerIsYou();
+        //     }
 
-            if(line[0] == "Player" && line[1] == "Is"&& line[2] == "Rock")
-            {
-                PlayerIsRock();
-            }
-            if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Player")
-            {
-                RockIsPlayer();
-            }
+        //     if(line[0] == "Player" && line[1] == "Is"&& line[2] == "Rock")
+        //     {
+        //         PlayerIsRock();
+        //     }
+        //     if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Player")
+        //     {
+        //         RockIsPlayer();
+        //     }
 
-            if(line[0] == "Wall" && line[1] == "Is"&& line[2] == "Push")
-            {
-                WallIsPush();
-            }
+        //     if(line[0] == "Wall" && line[1] == "Is"&& line[2] == "Push")
+        //     {
+        //         WallIsPush();
+        //     }
             
             
-        }
+        // }
+
+
+
+
+
+        
         
         // for(int i = 0; i < line.Count ; i++)
         // {

@@ -7,7 +7,7 @@ namespace Assets.Scripts.CommandParsers
 	public class SimpleNodeParser : IParser
 	{
 		public string Token { get; set; }
-		public IParser? Next { get; set; }
+		public IParser Next { get; set; }
 
 		public SimpleNodeParser(string token)
 		{

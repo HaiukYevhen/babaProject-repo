@@ -1,6 +1,8 @@
 ﻿using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -8,15 +10,18 @@ namespace Assets.Scripts
 	{
 		public override void Execute(TreeNode node)
 		{
-			var filter = node.Nodes.FirstOrDefault()?.Value as IGameObjectFilter;
-			var action = node.Nodes.LastOrDefault()?.Value as IGameObjectAction;
+			TreeNode leftNode = node.Nodes.FirstOrDefault();
+			TreeNode rightNode = node.Nodes.LastOrDefault();
+
+			IGameObjectFilter filter = leftNode?.Value as IGameObjectFilter;
+			IGameObjectAction action = rightNode?.Value as IGameObjectAction;
 
 			if (filter == null || action == null)
 				return;
 
-			var targets = filter.GetGameObjects();
+			IEnumerable<GameObject> targets = filter.GetGameObjects();
 
-			foreach (var target in targets)
+			foreach (GameObject target in targets)
 			{
 				action.Apply(target);
 			}
@@ -24,15 +29,18 @@ namespace Assets.Scripts
 
 		public override void Undo(TreeNode node)
 		{
-			var filter = node.Nodes.FirstOrDefault()?.Value as IGameObjectFilter;
-			var action = node.Nodes.LastOrDefault()?.Value as IGameObjectAction;
+			TreeNode left = node.Nodes.FirstOrDefault();
+			TreeNode right = node.Nodes.LastOrDefault();
+
+			IGameObjectFilter filter = left?.Value as IGameObjectFilter;
+			IGameObjectAction action = right?.Value as IGameObjectAction;
 
 			if (filter == null || action == null)
 				return;
 
-			var targets = filter.GetGameObjects();
+			IEnumerable<GameObject> targets = filter.GetGameObjects();
 
-			foreach (var target in targets)
+			foreach (GameObject target in targets)
 			{
 				action.Undo(target);
 			}

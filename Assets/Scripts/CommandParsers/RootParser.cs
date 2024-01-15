@@ -12,7 +12,7 @@ namespace Assets.Scripts.CommandParsers
 			RootNodes = rootNodes;
 		}
 
-		public IParser? Next { get; set; }
+		public IParser Next { get; set; }
 
 		public IEnumerable<TreeNode> Parse(List<ICommand> commandLine)
 		{

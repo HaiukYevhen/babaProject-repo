@@ -1,4 +1,4 @@
-using Assets.Scripts.CommandParsers;
+﻿using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,9 +46,11 @@ public class Command : MonoBehaviour, ICommand
 
         if(command != null)
         {
-            left = null;
+			//заповнити commandsBefore, commandsAfterLeft, commandsAfterRight
+			left = null;
             command.right = null;
-        }
+            //CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+		}
     }
      public void TopTriggerEnter(GameObject gameObjectTrigger)
     {
@@ -67,10 +69,12 @@ public class Command : MonoBehaviour, ICommand
 
         if(command != null)
         {
-            top = null;
+			//заповнити commandsBefore, commandsAfterLeft, commandsAfterRight
+			top = null;
             command.bottom = null;
-        }
-    }
+			//CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+		}
+	}
 
     private List<ICommand> GetLineHorizontal(){
         Command first = this;

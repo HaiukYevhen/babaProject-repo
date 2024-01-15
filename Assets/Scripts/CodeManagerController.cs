@@ -92,18 +92,29 @@ public class CodeManagerController : MonoBehaviour
 
 	public void ExecuteCommands(List<ICommand> commands)
     {
-		var parser = ParserBuilder.Instance.GetParser();
-		var executionTrees = parser.Parse(commands);
+		IParser parser = ParserBuilder.Instance.GetParser();
+		IEnumerable<TreeNode> executionTrees = parser.Parse(commands);
 
-        foreach (var executionTree in executionTrees)
+        foreach (TreeNode executionTree in executionTrees)
         {
             executionTree.Value.Execute(executionTree);
 		}
 	}
 
+	public void UndoCommands(List<ICommand> commands)
+	{
+		IParser parser = ParserBuilder.Instance.GetParser();
+		IEnumerable<TreeNode> executionTrees = parser.Parse(commands);
+
+		foreach (TreeNode executionTree in executionTrees)
+		{
+			executionTree.Value.Undo(executionTree);
+		}
+	}
+
 	public void UpdateCommands(List<ICommand> commandsBefore, List<ICommand> commandsAfterLeft, List<ICommand> commandsAfterRight)
 	{
-		//Undo commandsBefore
+        //Undo commandsBefore
 
 		//Execute commandsAfterLeft
 		//Execute commandsAfterRight

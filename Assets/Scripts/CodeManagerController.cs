@@ -114,10 +114,9 @@ public class CodeManagerController : MonoBehaviour
 
 	public void UpdateCommands(List<ICommand> commandsBefore, List<ICommand> commandsAfterLeft, List<ICommand> commandsAfterRight)
 	{
-        //Undo commandsBefore
-
-		//Execute commandsAfterLeft
-		//Execute commandsAfterRight
+        UndoCommands(commandsBefore);
+        ExecuteCommands(commandsAfterLeft);
+		ExecuteCommands(commandsAfterRight);
 	}
 
 	public void Execute(List<string> line)

@@ -35,7 +35,7 @@ public class Command : MonoBehaviour, ICommand
 
         if(command != null)
         {
-            left = command;
+            this.left = command;
             command.right = this;
             CodeManagerControllerScript.ExecuteCommands(GetLineHorizontal());
         }
@@ -46,10 +46,29 @@ public class Command : MonoBehaviour, ICommand
 
         if(command != null)
         {
-			//заповнити commandsBefore, commandsAfterLeft, commandsAfterRight
-			left = null;
+			List<ICommand> commandsBefore = GetLineHorizontal();
+            List<ICommand> commandsAfterLeft = new List<ICommand>();
+			Command current = command;
+
+            while(current != null)
+            {
+				commandsAfterLeft.Insert(0, current);
+                current = current.left;
+			}
+
+			List<ICommand> commandsAfterRight = new List<ICommand>();
+            current = this;
+
+			while (current != null)
+			{
+				commandsAfterRight.Add(current);
+				current = current.right;
+			}
+
+			this.left = null;
             command.right = null;
-            //CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+
+			CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
 		}
     }
      public void TopTriggerEnter(GameObject gameObjectTrigger)
@@ -69,10 +88,29 @@ public class Command : MonoBehaviour, ICommand
 
         if(command != null)
         {
-			//заповнити commandsBefore, commandsAfterLeft, commandsAfterRight
+			List<ICommand> commandsBefore = GetLineVertical();
+			List<ICommand> commandsAfterLeft = new List<ICommand>();
+			Command current = command;
+
+			while (current != null)
+			{
+				commandsAfterLeft.Insert(0, current);
+				current = current.top;
+			}
+
+			List<ICommand> commandsAfterRight = new List<ICommand>();
+			current = this;
+
+			while (current != null)
+			{
+				commandsAfterRight.Add(current);
+				current = current.bottom;
+			}
+
 			top = null;
             command.bottom = null;
-			//CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+
+			CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
 		}
 	}
 
@@ -90,7 +128,7 @@ public class Command : MonoBehaviour, ICommand
             current = current.right;
         }
 
-        Debug.Log(string.Join(" -> ", line));
+        //Debug.Log(string.Join(" -> ", line));
         return line;
     }
     private List<ICommand> GetLineVertical()
@@ -109,7 +147,7 @@ public class Command : MonoBehaviour, ICommand
             line.Add(current);
             current = current.bottom;
         }
-        Debug.Log(string.Join(" \\/ ", line));
+        //Debug.Log(string.Join(" \\/ ", line));
         return line;
     }
 

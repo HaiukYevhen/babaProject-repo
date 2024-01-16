@@ -10,8 +10,9 @@ namespace Assets.Scripts{
     {
         public void Apply(GameObject target)
 		{
+            Debug.Log("Apply PushCommand");
             var m_Rigidbody = target.GetComponent<Rigidbody>();
-            // turn off FreezePositionX,FreezePositionY,FreezePositionZ
+            
             m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionX;
             m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
             m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
@@ -19,7 +20,10 @@ namespace Assets.Scripts{
 
 		public void Undo(GameObject target)
 		{
-			
+			Debug.Log("Undo PushCommand");
+			var m_Rigidbody = target.GetComponent<Rigidbody>();
+
+			m_Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}
     }
 }

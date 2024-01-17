@@ -1,14 +1,11 @@
 using Assets.Scripts.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using TreeEditor;
 using UnityEngine;
 
-namespace Assets.Scripts{
-    public class PushCommand : Command, IGameObjectAction
+namespace Assets.Scripts
+{
+	public class PushCommand : Command, IGameObjectAction
     {
-        public void Apply(GameObject target)
+        public void Apply(CommandTarget target)
 		{
             Debug.Log("Apply PushCommand");
             var m_Rigidbody = target.GetComponent<Rigidbody>();
@@ -18,7 +15,7 @@ namespace Assets.Scripts{
             m_Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionZ;
 		}
 
-		public void Undo(GameObject target)
+		public void Undo(CommandTarget target)
 		{
 			Debug.Log("Undo PushCommand");
 			var m_Rigidbody = target.GetComponent<Rigidbody>();

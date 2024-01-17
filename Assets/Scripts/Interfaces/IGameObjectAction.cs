@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Interfaces
+﻿namespace Assets.Scripts.Interfaces
 {
 	public interface IGameObjectAction
 	{
-		void Apply(GameObject target);
-		void Undo(GameObject target);
+		void Apply(CommandTarget target);
+		void Undo(CommandTarget target);
 	}
 }

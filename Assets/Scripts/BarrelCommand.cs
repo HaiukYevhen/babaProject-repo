@@ -1,26 +1,29 @@
 ﻿using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
 	public class BarrelCommand : Command, IGameObjectFilter, IGameObjectAction
 	{
-		public GameObject gameObjectBarrel;
+		public CommandTarget gameObjectBarrel;
 
-		public IEnumerable<GameObject> GetGameObjects()
+		public IEnumerable<CommandTarget> GetGameObjects()
 		{
-			return GameObject.FindGameObjectsWithTag("Barrel");
+			return CodeManagerControllerScript
+				.GetCommandTargets()
+				.Where(x => x.HasTag("Barrel"));
 		}
 
-		public void Apply(GameObject target)
+		public void Apply(CommandTarget target)
 		{
 			Vector3 gameObjectBarrelsPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
-			Destroy(target);
-			Instantiate(gameObjectBarrel, gameObjectBarrelsPosition, gameObjectBarrel.transform.rotation);
+			CodeManagerControllerScript.DestroyCommandTarget(target);
+			CodeManagerControllerScript.InstantiateCommandTarget(gameObjectBarrel, gameObjectBarrelsPosition, gameObjectBarrel.transform.rotation);
 		}
 
-		public void Undo(GameObject target)
+		public void Undo(CommandTarget target)
 		{
 			
 		}

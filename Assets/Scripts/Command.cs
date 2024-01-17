@@ -9,7 +9,8 @@ public class Command : MonoBehaviour, ICommand
     public Command right;
     public Command top;
     public Command bottom;
-    private CodeManagerController CodeManagerControllerScript;
+
+    protected CodeManagerController CodeManagerControllerScript;
 
     public string text;
 
@@ -18,9 +19,7 @@ public class Command : MonoBehaviour, ICommand
 	// Start is called before the first frame update
 	void Start()
     {
-        //Test Comment
         CodeManagerControllerScript = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
-        Debug.Log(CodeManagerControllerScript);
     }
 
     // Update is called once per frame

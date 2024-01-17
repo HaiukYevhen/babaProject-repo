@@ -1,29 +1,29 @@
 ﻿using Assets.Scripts.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Threading;
-using TreeEditor;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
 	public class RockCommand : Command, IGameObjectFilter, IGameObjectAction
 	{
-		public GameObject gameObjectRock;
+		public CommandTarget gameObjectRock;
 
-		public IEnumerable<GameObject> GetGameObjects()
+		public IEnumerable<CommandTarget> GetGameObjects()
 		{
-			return GameObject.FindGameObjectsWithTag("Rock");
+			return CodeManagerControllerScript
+				.GetCommandTargets()
+				.Where(x => x.HasTag("Rock"));
 		}
 
-		public void Apply(GameObject target)
+		public void Apply(CommandTarget target)
 		{
 			Vector3 gameObjectBarrelsPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
-			Destroy(target);
-			Instantiate(gameObjectRock, gameObjectBarrelsPosition, gameObjectRock.transform.rotation);
+			CodeManagerControllerScript.DestroyCommandTarget(target);
+			CodeManagerControllerScript.InstantiateCommandTarget(gameObjectRock, gameObjectBarrelsPosition, gameObjectRock.transform.rotation);
 		}
 
-		public void Undo(GameObject target)
+		public void Undo(CommandTarget target)
 		{
 			
 		}

@@ -287,4 +287,4 @@ MonoBehaviour:
   top: {fileID: 0}
   bottom: {fileID: 0}
   text: ROCK
-  gameObjectRock: {fileID: 1802748051870819055, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}
+  gameObjectRock: {fileID: -5169189301387084042, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}

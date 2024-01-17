@@ -1,93 +1,32 @@
 using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CodeManagerController : MonoBehaviour
 {
+    public List<CommandTarget> commandTargets = new List<CommandTarget>();
+
     public GameObject gameObjectPlayer;
     public GameObject[] gameObjectPlayers;
     public GameObject gameObjectCommand;
-    public GameObject[] gameObjectsCommand;
     public GameObject gameObjectRock;
     public GameObject[] gameObjectRocks;
     public GameObject gameObjectBarrel;
     public GameObject[] gameObjectBarrels;
     public GameObject[]  gameObjectsWall;
-    private Player playerControllersScript;
     // bool activate ;
     // Start is called before the first frame update
     void Start()
     {
-        // IsControllerScript = GameObject.FindWithTag("IsComand").GetComponent<IsController>();
-
-
-
-        playerControllersScript = GameObject.FindWithTag("PlayerPrefab").GetComponent<Player>();
-        gameObjectsCommand = GameObject.FindGameObjectsWithTag("Command");
-        // activate = true;
-
-
-
-
-        // find All ObjectIs
-        // foreach(GameObject ObjectIs in gameObjectsIs)
-        // {
-        //     Debug.Log(ObjectIs);
-        //     IsControllerScript = ObjectIs.GetComponent<IsController>();
-        // }
-
-
-
-        // ReplacingStoneWithBarrel();
-        ///Rock
-        // Vector3 Vector3gameObjectRock = new Vector3(gameObjectRock.transform.position.x,gameObjectRock.transform.position.y,gameObjectRock.transform.position.z);
-        // Instantiate(gameObjectRock, Vector3gameObjectRock,gameObjectRock.transform.rotation);
-
-        
-    
-        // Destroy(gameObjectRock);
-
+		commandTargets = FindObjectsOfType<CommandTarget>().ToList();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // foreach(GameObject ObjectIs in gameObjectsIs)
-        // {
-        //     IsControllerScript = ObjectIs.GetComponent<IsController>();
-        //     if(IsControllerScript.PlayerComandIsTrigger == true && IsControllerScript.YouComandIsTrigger == true)
-        //     {
-        //         playerControllersScript.Move(true);
-        //     }
-        //     if(IsControllerScript.PlayerComandIsTrigger == false && IsControllerScript.YouComandIsTrigger == false)
-        //     {
-        //         playerControllersScript.Move(false);
-        //         // playerControllersScript.canMove = false;
-        //     }
-        //     if(IsControllerScript.RockComandIsTrigger == true && IsControllerScript.BarrelComandIsTrigger == true)
-        //     {
-        //         if(activate == true)
-        //         {
-        //             ReplacingStoneWithBarrel();
-        //             activate = false;
-        //         }
-
-        //     }
-
-
-
-
-
-        //     // if(IsControllerScript.RockComandIsTrigger == false || IsControllerScript.BarrelComandIsTrigger == false)
-        //     // {
-        //     //     activate = true;
-        //     // }
-
-        // }
+        
     }
 
 	public void ExecuteCommands(List<ICommand> commands)
@@ -119,67 +58,25 @@ public class CodeManagerController : MonoBehaviour
 		ExecuteCommands(commandsAfterRight);
 	}
 
-	public void Execute(List<string> line)
+    public void DestroyCommandTarget(CommandTarget commandTarget)
     {
-        // if(line.Count == 3)
-        // {
-        //     if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Barrel")
-        //     {
-        //        RockIsBarrel();
-        //     }
-        //     if(line[0] == "Barrel" && line[1] == "Is"&& line[2] == "Rock")
-        //     {
-        //         BarrelIsRock();
-        //     }
+        commandTargets.Remove(commandTarget);
+		Destroy(commandTarget.gameObject);
+	}
+
+	public void InstantiateCommandTarget(CommandTarget commandTarget, Vector3 position, Quaternion rotation)
+	{
+		var newGameObject = Instantiate(commandTarget.gameObject, position, rotation);
+		commandTargets.Add(newGameObject.GetComponent<CommandTarget>());
+	}
+
+	public IEnumerable<CommandTarget> GetCommandTargets()
+	{
+		return commandTargets;
+	}
 
 
-        //     if(line[0] == "You" && line[1] == "Is"&& line[2] == "Rock")
-        //     {
-        //         //move
-        //        YouIsRock();
-        //     }
-
-        //     if(line[0] == "Player" && line[1] == "Is"&& line[2] == "You")
-        //     {
-        //         ///not done;
-        //         PlayerIsYou();
-        //     }
-
-        //     if(line[0] == "Player" && line[1] == "Is"&& line[2] == "Rock")
-        //     {
-        //         PlayerIsRock();
-        //     }
-        //     if(line[0] == "Rock" && line[1] == "Is"&& line[2] == "Player")
-        //     {
-        //         RockIsPlayer();
-        //     }
-
-        //     if(line[0] == "Wall" && line[1] == "Is"&& line[2] == "Push")
-        //     {
-        //         WallIsPush();
-        //     }
-            
-            
-        // }
-
-
-
-
-
-        
-        
-        // for(int i = 0; i < line.Count ; i++)
-        // {
-        //     Debug.Log(line[i]);
-        //     if(line[i] == "Rock")
-        //     {
-                
-        //     }
-        // }
-
-    }
-
-    void ReplacingStoneWithBarrel()
+	void ReplacingStoneWithBarrel()
     {
         // gameObjectRock = GameObject.FindWithTag("Rock");
         // gameObjectBarrel = GameObject.FindWithTag("Barrel");

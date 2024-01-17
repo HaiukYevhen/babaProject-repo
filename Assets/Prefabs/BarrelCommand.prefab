@@ -287,4 +287,4 @@ MonoBehaviour:
   top: {fileID: 0}
   bottom: {fileID: 0}
   text: BARREL
-  gameObjectBarrel: {fileID: 6865221303799695859, guid: 0217531cd0367104a872012f1abe9295, type: 3}
+  gameObjectBarrel: {fileID: -5324305992619470672, guid: 0217531cd0367104a872012f1abe9295, type: 3}

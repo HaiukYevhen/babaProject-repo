@@ -19,9 +19,11 @@ namespace Assets.Scripts
 			if (filter == null || action == null)
 				return;
 
-			IEnumerable<GameObject> targets = filter.GetGameObjects();
+			IEnumerable<CommandTarget> targets = filter
+				.GetGameObjects()
+				.ToList();
 
-			foreach (GameObject target in targets)
+			foreach (CommandTarget target in targets)
 			{
 				action.Apply(target);
 			}
@@ -38,9 +40,11 @@ namespace Assets.Scripts
 			if (filter == null || action == null)
 				return;
 
-			IEnumerable<GameObject> targets = filter.GetGameObjects();
+			IEnumerable<CommandTarget> targets = filter
+				.GetGameObjects()
+				.ToList();
 
-			foreach (GameObject target in targets)
+			foreach (CommandTarget target in targets)
 			{
 				action.Undo(target);
 			}

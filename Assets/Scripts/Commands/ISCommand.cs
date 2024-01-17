@@ -2,6 +2,7 @@
 using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Assets.Scripts.Commands
 {
@@ -19,7 +20,7 @@ namespace Assets.Scripts.Commands
 				return;
 
 			IEnumerable<CommandTarget> targets = filter
-				.GetGameObjects()
+				.GetGameObjects(leftNode)
 				.ToList();
 
 			foreach (CommandTarget target in targets)
@@ -30,17 +31,17 @@ namespace Assets.Scripts.Commands
 
 		public override void Undo(TreeNode node)
 		{
-			TreeNode left = node.Nodes.FirstOrDefault();
-			TreeNode right = node.Nodes.LastOrDefault();
+			TreeNode leftNode = node.Nodes.FirstOrDefault();
+			TreeNode rightNode = node.Nodes.LastOrDefault();
 
-			IGameObjectFilter filter = left?.Value as IGameObjectFilter;
-			IGameObjectAction action = right?.Value as IGameObjectAction;
+			IGameObjectFilter filter = leftNode?.Value as IGameObjectFilter;
+			IGameObjectAction action = rightNode?.Value as IGameObjectAction;
 
 			if (filter == null || action == null)
 				return;
 
 			IEnumerable<CommandTarget> targets = filter
-				.GetGameObjects()
+				.GetGameObjects(leftNode)
 				.ToList();
 
 			foreach (CommandTarget target in targets)

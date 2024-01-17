@@ -1,3 +1,4 @@
+using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Commands
 	public class WallCommand : Command, IGameObjectFilter, IGameObjectAction
     {
         public CommandTarget gameObjectWall;
-        public IEnumerable<CommandTarget> GetGameObjects()
+        public IEnumerable<CommandTarget> GetGameObjects(TreeNode node)
 		{
 			return CodeManagerControllerScript
 				.GetCommandTargets()

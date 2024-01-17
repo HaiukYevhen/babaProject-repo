@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interfaces;
+﻿using Assets.Scripts.CommandParsers;
+using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace Assets.Scripts.Commands
 	{
 		public CommandTarget gameObjectRock;
 
-		public IEnumerable<CommandTarget> GetGameObjects()
+		public IEnumerable<CommandTarget> GetGameObjects(TreeNode node)
 		{
 			return CodeManagerControllerScript
 				.GetCommandTargets()

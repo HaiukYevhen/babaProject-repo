@@ -1,7 +1,7 @@
 using Assets.Scripts.Interfaces;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Commands
 {
 	public class PushCommand : Command, IGameObjectAction
     {

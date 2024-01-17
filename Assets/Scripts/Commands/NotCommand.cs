@@ -24,7 +24,8 @@ namespace Assets.Scripts.Commands
 				.GetCommandTargets()
 				.ToList();
 
-			return allTargets.Where(x => !childTargets.Contains(x));
+			return allTargets
+				.Where(x => !childTargets.Contains(x));
 		}
 
 		public void Apply(CommandTarget target)

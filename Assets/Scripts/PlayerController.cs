@@ -6,17 +6,19 @@ public class Player : MonoBehaviour
     public float verticalInput;
     public float speed = 10.0f;
 
-    public bool canMove = false;
+    private Rigidbody rb;
+
+    //public bool canMove = false;
     // Start is called before the first frame update
     void Start()
     {
-    
-    }
+		rb = GetComponent<Rigidbody>();
+	}
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Move(canMove);
+        Move(true);
     }
     public void Move(bool canMove)
     {
@@ -24,8 +26,11 @@ public class Player : MonoBehaviour
         {
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
-            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-            transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
+
+			Vector3 position = rb.position;
+			position.x += horizontalInput * speed * Time.deltaTime;
+			position.z += verticalInput * speed * Time.deltaTime;
+			rb.MovePosition(position);
         }
     }
 }

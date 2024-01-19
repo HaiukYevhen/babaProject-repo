@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class CodeManagerController : MonoBehaviour
 {
-    public List<CommandTarget> commandTargets = new List<CommandTarget>();
+	public CameraController cameraController;
+	public List<CommandTarget> commandTargets = new List<CommandTarget>();
 
     void Start()
     {
+		cameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
 		commandTargets = FindObjectsOfType<CommandTarget>().ToList();
     }
 

@@ -210,7 +210,7 @@ PrefabInstance:
       addedObject: {fileID: 6932364800980452165}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c1682cf8886c994e82b8e8da38f9488, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8257368712003827716}
+      addedObject: {fileID: 6872250634930544549}
   m_SourcePrefab: {fileID: 100100000, guid: 8c1682cf8886c994e82b8e8da38f9488, type: 3}
 --- !u!4 &6994927160161969955 stripped
 Transform:
@@ -270,7 +270,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8257368712003827716
+--- !u!114 &6872250634930544549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,12 +279,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7663201997811613081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 563fa033c4224674cac44a37af0e95bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 29baa4cce33b39443b2d093acebcbf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   left: {fileID: 0}
   right: {fileID: 0}
   top: {fileID: 0}
   bottom: {fileID: 0}
-  text: BARREL
-  gameObjectBarrel: {fileID: -5324305992619470672, guid: 0217531cd0367104a872012f1abe9295, type: 3}
+  text: Barrel
+  prefab: {fileID: -5324305992619470672, guid: 0217531cd0367104a872012f1abe9295, type: 3}

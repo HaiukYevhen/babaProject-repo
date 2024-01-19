@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661448758127181108}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2059244799243157339}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5321659414456939066
 BoxCollider:
@@ -93,13 +93,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5742329885857140256}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2059244799243157339}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5289273826657942226
 BoxCollider:
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 203728e1c27d0124d98301c1635bda2b, type: 3}
       propertyPath: m_Name
-      value: PlayerCommand Variant
+      value: PlayerCommand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -210,7 +210,7 @@ PrefabInstance:
       addedObject: {fileID: 7550264558982654750}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 203728e1c27d0124d98301c1635bda2b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9089132659718287505}
+      addedObject: {fileID: -8768692053115615447}
   m_SourcePrefab: {fileID: 100100000, guid: 203728e1c27d0124d98301c1635bda2b, type: 3}
 --- !u!1 &1718185451497792993 stripped
 GameObject:
@@ -265,7 +265,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9089132659718287505
+--- !u!114 &-8768692053115615447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1718185451497792993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faa7cc778bc9c5439887be6dca3d3bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 29baa4cce33b39443b2d093acebcbf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   left: {fileID: 0}
@@ -282,6 +282,7 @@ MonoBehaviour:
   top: {fileID: 0}
   bottom: {fileID: 0}
   text: Player
+  prefab: {fileID: 1352117452251850049, guid: 8991c6715e494a441ab4f7a9b91a601e, type: 3}
 --- !u!4 &2059244799243157339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 203728e1c27d0124d98301c1635bda2b, type: 3}

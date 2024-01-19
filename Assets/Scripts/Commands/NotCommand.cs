@@ -20,7 +20,7 @@ namespace Assets.Scripts.Commands
 				.GetGameObjects(childNode)
 				.ToList();
 
-			List<CommandTarget> allTargets = CodeManagerControllerScript
+			List<CommandTarget> allTargets = codeManagerController
 				.GetCommandTargets()
 				.ToList();
 

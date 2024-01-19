@@ -12,7 +12,7 @@ namespace Assets.Scripts.Commands
 		public Command top;
 		public Command bottom;
 
-		protected CodeManagerController CodeManagerControllerScript;
+		protected CodeManagerController codeManagerController;
 
 		public string text;
 
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Commands
 		// Start is called before the first frame update
 		void Start()
 		{
-			CodeManagerControllerScript = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+			codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
 		}
 
 		// Update is called once per frame
@@ -38,7 +38,7 @@ namespace Assets.Scripts.Commands
 			{
 				this.left = command;
 				command.right = this;
-				CodeManagerControllerScript.ExecuteCommands(GetLineHorizontal());
+				codeManagerController.ExecuteCommands(GetLineHorizontal());
 			}
 		}
 		public void LeftTriggerExit(GameObject gameObjectTrigger)
@@ -69,7 +69,7 @@ namespace Assets.Scripts.Commands
 				this.left = null;
 				command.right = null;
 
-				CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+				codeManagerController.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
 			}
 		}
 		public void TopTriggerEnter(GameObject gameObjectTrigger)
@@ -79,7 +79,7 @@ namespace Assets.Scripts.Commands
 			{
 				top = command;
 				command.bottom = this;
-				CodeManagerControllerScript.ExecuteCommands(GetLineVertical());
+				codeManagerController.ExecuteCommands(GetLineVertical());
 			}
 
 		}
@@ -111,7 +111,7 @@ namespace Assets.Scripts.Commands
 				top = null;
 				command.bottom = null;
 
-				CodeManagerControllerScript.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
+				codeManagerController.UpdateCommands(commandsBefore, commandsAfterLeft, commandsAfterRight);
 			}
 		}
 

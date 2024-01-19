@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3431234922767410695}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8958654054078567846}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7689465247021435254
 BoxCollider:
@@ -93,13 +93,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5948257318563405516}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8958654054078567846}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2311906824914590867
 BoxCollider:
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a1bb5747274358c4dad546964876c784, type: 3}
       propertyPath: m_Name
-      value: YouCommand Variant
+      value: YouCommand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -210,7 +210,7 @@ PrefabInstance:
       addedObject: {fileID: 3247130281484289082}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a1bb5747274358c4dad546964876c784, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5858938527534822038}
+      addedObject: {fileID: 1554801201272197199}
   m_SourcePrefab: {fileID: 100100000, guid: a1bb5747274358c4dad546964876c784, type: 3}
 --- !u!1 &8581706711143223068 stripped
 GameObject:
@@ -265,7 +265,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &5858938527534822038
+--- !u!114 &1554801201272197199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8581706711143223068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faa7cc778bc9c5439887be6dca3d3bc, type: 3}
+  m_Script: {fileID: 11500000, guid: afe42b421f3d68047aad3ea37dce25b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   left: {fileID: 0}
@@ -282,6 +282,7 @@ MonoBehaviour:
   top: {fileID: 0}
   bottom: {fileID: 0}
   text: You
+  gameObjectRock: {fileID: 0}
 --- !u!4 &8958654054078567846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}

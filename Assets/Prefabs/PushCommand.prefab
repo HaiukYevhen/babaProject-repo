@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2465281044179939684}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3030023046552591421}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3546854304638582047
 BoxCollider:
@@ -93,13 +93,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6644019371551226760}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3030023046552591421}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8473323777056753884
 BoxCollider:
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39281b20811b88746a9a1205ba64c039, type: 3}
       propertyPath: m_Name
-      value: PushCommand Variant
+      value: PushCommand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -210,7 +210,7 @@ PrefabInstance:
       addedObject: {fileID: 3744517809930960869}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39281b20811b88746a9a1205ba64c039, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4002199629688852179}
+      addedObject: {fileID: 8145382302645381176}
   m_SourcePrefab: {fileID: 100100000, guid: 39281b20811b88746a9a1205ba64c039, type: 3}
 --- !u!1 &2397917507407300231 stripped
 GameObject:
@@ -265,7 +265,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4002199629688852179
+--- !u!114 &8145382302645381176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2397917507407300231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8faa7cc778bc9c5439887be6dca3d3bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 364b32beb4c0aef468b349147b762518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   left: {fileID: 0}

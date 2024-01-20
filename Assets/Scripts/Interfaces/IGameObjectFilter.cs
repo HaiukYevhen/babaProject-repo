@@ -5,6 +5,6 @@ namespace Assets.Scripts.Interfaces
 {
 	public interface IGameObjectFilter
 	{
-		IEnumerable<CommandTarget> GetGameObjects(TreeNode node);
+		IEnumerable<CommandTarget> GetCommandTargets(TreeNode node);
 	}
 }

@@ -2,7 +2,6 @@
 using Assets.Scripts.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Assets.Scripts.Commands
 {
@@ -20,12 +19,13 @@ namespace Assets.Scripts.Commands
 				return;
 
 			IEnumerable<CommandTarget> targets = filter
-				.GetGameObjects(leftNode)
+				.GetCommandTargets(leftNode)
+				.Distinct()
 				.ToList();
 
 			foreach (CommandTarget target in targets)
 			{
-				action.Apply(target);
+				action.Apply(rightNode, target);
 			}
 		}
 
@@ -41,12 +41,13 @@ namespace Assets.Scripts.Commands
 				return;
 
 			IEnumerable<CommandTarget> targets = filter
-				.GetGameObjects(leftNode)
+				.GetCommandTargets(leftNode)
+				.Distinct()
 				.ToList();
 
 			foreach (CommandTarget target in targets)
 			{
-				action.Undo(target);
+				action.Undo(rightNode, target);
 			}
 		}
 	}

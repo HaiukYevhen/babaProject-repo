@@ -1,8 +1,10 @@
-﻿namespace Assets.Scripts.Interfaces
+﻿using Assets.Scripts.CommandParsers;
+
+namespace Assets.Scripts.Interfaces
 {
 	public interface IGameObjectAction
 	{
-		void Apply(CommandTarget target);
-		void Undo(CommandTarget target);
+		void Apply(TreeNode node, CommandTarget target);
+		void Undo(TreeNode node, CommandTarget target);
 	}
 }

@@ -11,7 +11,7 @@ namespace Assets.Scripts.CommandParsers
 				"IS"
 			}))
 			.AddBinaryNodeParser("IS")
-			.AddBinaryNodeParser("OR")
+			.AddBinaryNodeParser("AND")
 			.AddUnaryNodeParser("NOT")
 			.AddSimpleNodeParser("*");
 

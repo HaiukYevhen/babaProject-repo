@@ -9,21 +9,21 @@ namespace Assets.Scripts.Commands
 {
 	public class YouCommand : Command, IGameObjectFilter, IGameObjectAction
 	{
-		public IEnumerable<CommandTarget> GetGameObjects(TreeNode node)
+		public IEnumerable<CommandTarget> GetCommandTargets(TreeNode node)
 		{
 			return codeManagerController
 				.GetCommandTargets()
 				.Where(x => x.HasTag("You"));
 		}
 
-		public void Apply(CommandTarget target)
+		public void Apply(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Apply You");
 			target.AddTag("You");
 			target.AddComponent<Player>();
 		}
 
-		public void Undo(CommandTarget target)
+		public void Undo(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Undo You");
 			target.RemoveTag("You");

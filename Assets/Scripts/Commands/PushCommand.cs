@@ -1,3 +1,4 @@
+using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Assets.Scripts.Commands
 {
 	public class PushCommand : Command, IGameObjectAction
     {
-        public void Apply(CommandTarget target)
+        public void Apply(TreeNode node, CommandTarget target)
 		{
             Debug.Log("Apply PushCommand");
             var m_Rigidbody = target.GetComponent<Rigidbody>();
@@ -13,7 +14,7 @@ namespace Assets.Scripts.Commands
 			m_Rigidbody.isKinematic = true;
 		}
 
-		public void Undo(CommandTarget target)
+		public void Undo(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Undo PushCommand");
 			var m_Rigidbody = target.GetComponent<Rigidbody>();

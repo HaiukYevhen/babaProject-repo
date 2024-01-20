@@ -8,7 +8,7 @@ namespace Assets.Scripts.Commands
 {
 	public class NotCommand : Command, IGameObjectFilter, IGameObjectAction
 	{
-		public IEnumerable<CommandTarget> GetGameObjects(TreeNode node)
+		public IEnumerable<CommandTarget> GetCommandTargets(TreeNode node)
 		{
 			TreeNode childNode = node.Nodes.FirstOrDefault();
 			IGameObjectFilter filter = childNode?.Value as IGameObjectFilter;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Commands
 				return new List<CommandTarget>();
 
 			List<CommandTarget> childTargets = filter
-				.GetGameObjects(childNode)
+				.GetCommandTargets(childNode)
 				.ToList();
 
 			List<CommandTarget> allTargets = codeManagerController
@@ -28,12 +28,12 @@ namespace Assets.Scripts.Commands
 				.Where(x => !childTargets.Contains(x));
 		}
 
-		public void Apply(CommandTarget target)
+		public void Apply(TreeNode node, CommandTarget target)
 		{
 			//?
 		}
 
-		public void Undo(CommandTarget target)
+		public void Undo(TreeNode node, CommandTarget target)
 		{
 			//?
 		}

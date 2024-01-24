@@ -8,7 +8,7 @@ public class SecretBox : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         CommandTarget target  = collider.gameObject.GetComponent<CommandTarget>();
-        if(target.HasTag("Key"))
+        if(target != null && target.HasTag("Key"))
         {
             Vector3 boxPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Instantiate(prefab, boxPosition, prefab.transform.rotation);

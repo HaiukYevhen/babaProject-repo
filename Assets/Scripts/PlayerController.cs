@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     public float horizontalInput;
     public float verticalInput;
-    public float speed = 10.0f;
+    public float speed = 8;
     private Rigidbody rb;
 	private GameObject e;
 	private Animator playerAnimator;
@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
 		Vector3 position = rb.velocity;
 		position.x = horizontalInput;
 		position.z = verticalInput;
+
+		if (position.y > 0)
+			position.y = 0;
 
 		if (position.magnitude > 1)
 			position.Normalize();

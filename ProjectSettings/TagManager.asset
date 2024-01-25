@@ -15,6 +15,7 @@ TagManager:
   - PlayerPrefab
   - Command
   - Wall
+  - PausedMenu
   layers:
   - Default
   - TransparentFX

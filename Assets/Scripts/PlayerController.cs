@@ -5,8 +5,9 @@ public class Player : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 8;
+	public float rotationSpeed = 720;
     private Rigidbody rb;
-	private GameObject e;
+	// private GameObject e;
 	private Animator playerAnimator;
 	
 
@@ -59,7 +60,9 @@ public class Player : MonoBehaviour
 		movementDirection.Normalize();
 		if(movementDirection != Vector3.zero)
 		{
-			transform.forward = movementDirection;
+			Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+			// transform.forward = movementDirection;
 		}
 	}
 }

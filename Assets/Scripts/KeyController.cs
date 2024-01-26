@@ -7,13 +7,14 @@ public class KeyController : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         var commandTarget = collider.gameObject.GetComponent<CommandTarget>();
-
-		if (commandTarget != null && !commandTarget.HasTag("Key"))
+        if(commandTarget != null && commandTarget.HasTag("You"))
         {
-			commandTarget.AddTag("Key");
-            Destroy(gameObject);
-        }
-        
+            if (commandTarget != null && !commandTarget.HasTag("Key"))
+            {
+                commandTarget.AddTag("Key");
+                Destroy(gameObject);
+            }
+        } 
     }
     
 }

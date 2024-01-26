@@ -7,12 +7,18 @@ using UnityEngine;
 public class CodeManagerController : MonoBehaviour
 {
 	public CameraController cameraController;
-	public List<CommandTarget> commandTargets = new List<CommandTarget>();
+    public List<CommandTarget> commandTargets = new List<CommandTarget>();
 
     void Start()
     {
 		cameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
-		commandTargets = FindObjectsOfType<CommandTarget>().ToList();
+		var targets = FindObjectsOfType<CommandTarget>();
+		if(targets != null)
+		{
+			commandTargets = targets.ToList();
+		}
+		
+
     }
 
     // Update is called once per frame

@@ -4,21 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PausedMenu : MonoBehaviour
 {
-    public Esc escScript;
-    private GameObject pausedMenu;
+    private Esc escScript;
     public void CountinueGame()
     {
-        pausedMenu = GameObject.Find("PausedMenu");
-        escScript = GetComponent<Esc>();
-        // escScript.EscMenu();
-        
-        // escScript.secondTime = false;
-        pausedMenu.SetActive(false);
-        
-        Time.timeScale = 1;
-        return;
-        // Application.Quit();
-        
+        escScript = GameObject.Find("Esc").GetComponent<Esc>();
+        escScript.EscMenu();  
     }
     public void QuitGame()
     {

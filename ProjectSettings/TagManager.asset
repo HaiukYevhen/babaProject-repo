@@ -16,6 +16,7 @@ TagManager:
   - Command
   - Wall
   - PausedMenu
+  - Key
   layers:
   - Default
   - TransparentFX

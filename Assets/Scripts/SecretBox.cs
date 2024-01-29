@@ -8,6 +8,11 @@ public class SecretBox : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         CommandTarget target  = collider.gameObject.GetComponent<CommandTarget>();
+        bool trueKey = false;
+        if(collider.gameObject.GetComponent<KeyController>()!= null)
+        {
+            trueKey = true;
+        }
         if(target != null && target.HasTag("Key"))
         {
             Vector3 boxPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -15,6 +20,10 @@ public class SecretBox : MonoBehaviour
 
             Destroy(gameObject);
             target.RemoveTag("Key");
+            if(trueKey)
+            {
+                Destroy(collider.gameObject);
+            }
             // collider.enabled = false;
         }
         

@@ -2,9 +2,16 @@
 using UnityEngine;
 
 
-public class KeyController : MonoBehaviour
+public class KeyCommandTarget : CommandTarget
 {
-    void OnTriggerEnter(Collider collider)
+	private CodeManagerController codeManagerController;
+
+	void Start()
+	{
+		codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+	}
+
+	void OnTriggerEnter(Collider collider)
     {
         var commandTarget = collider.gameObject.GetComponent<CommandTarget>();
         if(commandTarget != null && commandTarget.HasTag("You"))
@@ -12,7 +19,7 @@ public class KeyController : MonoBehaviour
             if (commandTarget != null && !commandTarget.HasTag("Key"))
             {
                 commandTarget.AddTag("Key");
-                Destroy(gameObject);
+				codeManagerController.DestroyCommandTarget(this);
             }
         } 
     }

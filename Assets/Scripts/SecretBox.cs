@@ -9,7 +9,7 @@ public class SecretBox : MonoBehaviour
     {
         CommandTarget target  = collider.gameObject.GetComponent<CommandTarget>();
         bool trueKey = false;
-        if(collider.gameObject.GetComponent<KeyController>()!= null)
+        if(collider.gameObject.GetComponent<KeyCommandTarget>()!= null)
         {
             trueKey = true;
         }

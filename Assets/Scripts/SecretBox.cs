@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SecretBox : MonoBehaviour
+public class SecretBox : CommandTarget
 {
+	private CodeManagerController codeManagerController;
+
+	void Start()
+	{
+		codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+	}
+
     public GameObject prefab;
     void OnTriggerEnter(Collider collider)
     {
@@ -18,11 +25,13 @@ public class SecretBox : MonoBehaviour
             Vector3 boxPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Instantiate(prefab, boxPosition, prefab.transform.rotation);
 
-            Destroy(gameObject);
+            codeManagerController.DestroyCommandTarget(this);
+            // Destroy(gameObject);
             target.RemoveTag("Key");
             if(trueKey)
             {
-                Destroy(collider.gameObject);
+                codeManagerController.DestroyCommandTarget(target);
+                // Destroy(collider.gameObject);
             }
             // collider.enabled = false;
         }

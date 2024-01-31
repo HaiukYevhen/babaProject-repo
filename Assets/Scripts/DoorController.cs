@@ -4,10 +4,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class DoorController : MonoBehaviour
+public class DoorController : CommandTarget
 {
     public float correctPosition = 0;
     bool doorOpen = false;
+    private CodeManagerController codeManagerController;
+
+	void Start()
+	{
+		codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+	}
     void OnTriggerEnter(Collider collider)
     {
         CommandTarget target  = collider.gameObject.GetComponent<CommandTarget>();
@@ -26,7 +32,8 @@ public class DoorController : MonoBehaviour
             target.RemoveTag("Key");
             if(trueKey)
             {
-                Destroy(collider.gameObject);
+                codeManagerController.DestroyCommandTarget(target);
+                // Destroy(collider.gameObject);
             }
             doorOpen = true;
             // collider.enabled = false;

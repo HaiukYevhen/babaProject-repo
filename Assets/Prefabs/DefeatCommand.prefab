@@ -204,6 +204,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290a3abac9b6958489ffc5d5385fdf03, type: 3}
       insertIndex: -1
       addedObject: {fileID: 309322526410959008}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 290a3abac9b6958489ffc5d5385fdf03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8999626370252107856}
   m_SourcePrefab: {fileID: 100100000, guid: 290a3abac9b6958489ffc5d5385fdf03, type: 3}
 --- !u!1 &3938707016067978760 stripped
 GameObject:
@@ -258,6 +261,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8999626370252107856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938707016067978760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023f6d4dbd7afb1478cd62f636a86ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: {fileID: 0}
+  right: {fileID: 0}
+  top: {fileID: 0}
+  bottom: {fileID: 0}
+  text: Defeat
 --- !u!4 &4459348154883656882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 290a3abac9b6958489ffc5d5385fdf03, type: 3}

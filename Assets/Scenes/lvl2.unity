@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f4bc5eb07a9394fbe6871c83f14c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScene: Menu
+  nameScene: lvl3
 --- !u!114 &1273752528
 MonoBehaviour:
   m_ObjectHideFlags: 0

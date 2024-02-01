@@ -266,10 +266,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 709141308322244648, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 709141308322244648, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.556672
       objectReference: {fileID: 0}
@@ -312,10 +308,6 @@ PrefabInstance:
     - target: {fileID: 1802748051870819055, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}
       propertyPath: m_Name
       value: Rock
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249182143457368946, guid: 74ba3e26e9ed97d4999d653580535a35, type: 3}
-      propertyPath: m_Mass
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1391,28 +1383,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 745924867}
---- !u!1 &991718397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3938707016067978760, guid: 1f30ce4d500c751408fad632601b52a1, type: 3}
-  m_PrefabInstance: {fileID: 824357479610572238}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &991718401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991718397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 023f6d4dbd7afb1478cd62f636a86ae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  left: {fileID: 0}
-  right: {fileID: 0}
-  top: {fileID: 0}
-  bottom: {fileID: 0}
-  text: Defeat
 --- !u!1 &992285705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,10 +2113,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
-    - target: {fileID: 6896770763334895751, guid: 0217531cd0367104a872012f1abe9295, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 7127003504954314522, guid: 0217531cd0367104a872012f1abe9295, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.7862062
@@ -2855,10 +2821,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3938707016067978760, guid: 1f30ce4d500c751408fad632601b52a1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 991718401}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f30ce4d500c751408fad632601b52a1, type: 3}
 --- !u!1001 &1013387157725995727
 PrefabInstance:

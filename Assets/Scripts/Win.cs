@@ -4,10 +4,11 @@ using UnityEngine;
 public class Win : MonoBehaviour
 {
     private GameObject winMenu;
+    private WinManager winManagerScript;
     void Start()
     {
-        winMenu = GameObject.Find("WinMenu");
-        winMenu.SetActive(false);
+        winMenu = GameObject.Find("WinGameObject");
+        winManagerScript = winMenu.GetComponent<WinManager>();
     }
     void OnTriggerEnter(Collider collider)
     {
@@ -16,7 +17,7 @@ public class Win : MonoBehaviour
 		if (commandTarget != null && commandTarget.HasTag("You"))
         {
             Debug.Log("win");
-            winMenu.SetActive(true);
+            winManagerScript.winMenu.SetActive(true);
             Time.timeScale = 0;
             return;
         }

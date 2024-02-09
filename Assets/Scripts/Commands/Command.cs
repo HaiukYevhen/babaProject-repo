@@ -33,9 +33,18 @@ namespace Assets.Scripts.Commands
 		{
 			var command = gameObjectTrigger.GetComponent<Command>();
 
-
 			if (command != null)
 			{
+				if (this.left != null)
+				{
+					LeftTriggerExit(this.left.gameObject);
+				}
+
+				if (command.right != null)
+				{
+					command.right.LeftTriggerExit(command.gameObject);
+				}
+
 				this.left = command;
 				command.right = this;
 				codeManagerController.ExecuteCommands(GetLineHorizontal());
@@ -45,7 +54,7 @@ namespace Assets.Scripts.Commands
 		{
 			var command = gameObjectTrigger.GetComponent<Command>();
 
-			if (command != null)
+			if (command != null && this.left != null && command.right != null)
 			{
 				List<ICommand> commandsBefore = GetLineHorizontal();
 				List<ICommand> commandsAfterLeft = new List<ICommand>();

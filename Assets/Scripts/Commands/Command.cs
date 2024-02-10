@@ -86,6 +86,16 @@ namespace Assets.Scripts.Commands
 			var command = gameObjectTrigger.GetComponent<Command>();
 			if (command != null)
 			{
+				if (this.top != null)
+				{
+					TopTriggerExit(this.top.gameObject);
+				}
+
+				if (command.bottom != null)
+				{
+					command.bottom.TopTriggerExit(command.gameObject);
+				}
+
 				top = command;
 				command.bottom = this;
 				codeManagerController.ExecuteCommands(GetLineVertical());
@@ -96,7 +106,7 @@ namespace Assets.Scripts.Commands
 		{
 			var command = gameObjectTrigger.GetComponent<Command>();
 
-			if (command != null)
+			if (command != null && this.top != null && command.bottom != null)
 			{
 				List<ICommand> commandsBefore = GetLineVertical();
 				List<ICommand> commandsAfterLeft = new List<ICommand>();

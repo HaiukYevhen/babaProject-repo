@@ -10,10 +10,9 @@ public class Win : MonoBehaviour
         winMenu = GameObject.Find("WinGameObject");
         winManagerScript = winMenu.GetComponent<WinManager>();
     }
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter(Collision collision)
     {
-        
-        var commandTarget = collider.gameObject.GetComponent<CommandTarget>();
+        var commandTarget = collision.gameObject.GetComponent<CommandTarget>();
 		if (commandTarget != null && commandTarget.HasTag("You"))
         {
             Debug.Log("win");

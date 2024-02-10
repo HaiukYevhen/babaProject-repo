@@ -4,21 +4,25 @@ using UnityEngine;
 
 namespace Assets.Scripts.Commands
 {
-	public class PushCommand : Command, IGameObjectAction
+	public class HeavyCommand : Command, IGameObjectAction
     {
+		float currentMass;
         public void Apply(TreeNode node, CommandTarget target)
 		{
             Debug.Log("Apply PushCommand");
             var m_Rigidbody = target.GetComponent<Rigidbody>();
+			currentMass = m_Rigidbody.mass;
+			m_Rigidbody.mass = 10000;
 
-			m_Rigidbody.isKinematic = true;
+			// m_Rigidbody.isKinematic = true;
 		}
 
 		public void Undo(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Undo PushCommand");
 			var m_Rigidbody = target.GetComponent<Rigidbody>();
-			m_Rigidbody.isKinematic = false;
+			m_Rigidbody.mass = currentMass;
+			// m_Rigidbody.isKinematic = false;
 		}
     }
 }

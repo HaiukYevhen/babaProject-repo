@@ -25,6 +25,12 @@ public class WinCommand : Command, IGameObjectAction
 		{
 			Debug.Log("Undo Win");
             target.RemoveTag("Win");
+			var win = target.GetComponent<Win>();
+
+            if(win != null)
+            {
+                Destroy(win);
+            }
 		}
 	}
 }

@@ -9,19 +9,20 @@ namespace Assets.Scripts.Commands
 		float currentMass;
         public void Apply(TreeNode node, CommandTarget target)
 		{
-            Debug.Log("Apply PushCommand");
+           
+			// target.AddTag("Heavy");
             var m_Rigidbody = target.GetComponent<Rigidbody>();
-			currentMass = m_Rigidbody.mass;
-			m_Rigidbody.mass = 10000;
+			// currentMass = m_Rigidbody.mass;
+			m_Rigidbody.mass += 10000;
 
 			// m_Rigidbody.isKinematic = true;
 		}
 
 		public void Undo(TreeNode node, CommandTarget target)
 		{
-			Debug.Log("Undo PushCommand");
+			// target.RemoveTag("Heavy");
 			var m_Rigidbody = target.GetComponent<Rigidbody>();
-			m_Rigidbody.mass = currentMass;
+			m_Rigidbody.mass -= 10000;
 			// m_Rigidbody.isKinematic = false;
 		}
     }

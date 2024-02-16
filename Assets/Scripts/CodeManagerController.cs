@@ -1,15 +1,23 @@
 using Assets.Scripts.CommandParsers;
 using Assets.Scripts.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class CodeManagerController : MonoBehaviour
 {
+	public class CommandTargetActionDefenition
+	{
+        public string Key { get; set; }
+		public Action<CommandTarget> Action { get; set; }
+	}
+
 	public CameraController cameraController;
     public List<CommandTarget> commandTargets = new List<CommandTarget>();
+	public List<CommandTargetActionDefenition> CommandTargetInstantiatedActions = new List<CommandTargetActionDefenition>();
 
-    void Start()
+	void Start()
     {
 		cameraController = GameObject.Find("Main Camera").GetComponent<CameraController>();
 		var targets = FindObjectsOfType<CommandTarget>();
@@ -17,14 +25,11 @@ public class CodeManagerController : MonoBehaviour
 		{
 			commandTargets = targets.ToList();
 		}
-		
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
 	public void ExecuteCommands(List<ICommand> commands)
@@ -65,7 +70,13 @@ public class CodeManagerController : MonoBehaviour
 	public void InstantiateCommandTarget(CommandTarget commandTarget, Vector3 position, Quaternion rotation)
 	{
 		var newGameObject = Instantiate(commandTarget.gameObject, position, rotation);
-		commandTargets.Add(newGameObject.GetComponent<CommandTarget>());
+		var newCommandTarget = newGameObject.GetComponent<CommandTarget>();
+		commandTargets.Add(newCommandTarget);
+
+		foreach (var action in CommandTargetInstantiatedActions) 
+		{
+			action.Action(newCommandTarget);
+		}
 	}
 
 	public IEnumerable<CommandTarget> GetCommandTargets()

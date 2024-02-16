@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - Player
+  - name: Player
+    count: 1
 --- !u!136 &7200818998570649602
 CapsuleCollider:
   m_ObjectHideFlags: 0

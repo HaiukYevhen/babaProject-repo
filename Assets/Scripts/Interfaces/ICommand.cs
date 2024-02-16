@@ -4,6 +4,7 @@ namespace Assets.Scripts.Interfaces
 {
 	public interface ICommand
 	{
+		string Id { get; }
 		string Value { get; }
 		void Execute(TreeNode node);
 

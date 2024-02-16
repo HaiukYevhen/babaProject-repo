@@ -9,28 +9,30 @@ namespace Assets.Scripts.Commands
 {
 public class WinCommand : Command, IGameObjectAction
 	{
-
-	// void Start()
-	// {
-	// 	codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
-	// }
 		public void Apply(TreeNode node, CommandTarget target)
 		{
-            // codeManagerController.DestroyCommandTarget(target);
+			Debug.Log("Apply Win");
+
+			if (!target.HasTag("Win"))
+			{
+				target.AddComponent<Win>();
+			}
+
 			target.AddTag("Win");
-            target.AddComponent<Win>();
-            Debug.Log("Apply Win");
 		}
 		public void Undo(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Undo Win");
             target.RemoveTag("Win");
-			var win = target.GetComponent<Win>();
 
-            if(win != null)
-            {
-                Destroy(win);
-            }
+			if (!target.HasTag("Win"))
+			{
+				var win = target.GetComponent<Win>();
+				if (win != null)
+				{
+					Destroy(win);
+				}
+			}
 		}
 	}
 }

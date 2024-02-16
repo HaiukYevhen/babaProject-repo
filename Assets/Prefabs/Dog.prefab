@@ -5760,7 +5760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tags:
-  - Dog
+  - name: Dog
+    count: 1
 --- !u!1 &8227620602040793530
 GameObject:
   m_ObjectHideFlags: 0

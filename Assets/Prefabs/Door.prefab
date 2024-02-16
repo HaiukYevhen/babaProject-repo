@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9269d0d680169b442b3821e96e006223, type: 3}
       propertyPath: m_Name
-      value: door
+      value: Door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -104,6 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f1491a314f6b24f927e658f3df8553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tags:
+  - name: Door
+    count: 1
+  correctPosition: 0
 --- !u!65 &1185096946180427124
 BoxCollider:
   m_ObjectHideFlags: 0

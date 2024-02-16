@@ -16,6 +16,7 @@ namespace Assets.Scripts.Commands
 
 		public string text;
 
+		public string Id => GetInstanceID().ToString();
 		public string Value => text;
 
 		// Start is called before the first frame update

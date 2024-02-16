@@ -16,5 +16,13 @@ namespace Assets.Scripts.CommandParsers
 				str += $"({string.Join(";", Nodes)})";
 			return str;
 		}
+
+		public string GetId()
+		{
+			var str = Value?.Id ?? "_";
+			if (Nodes.Any())
+				str += $"({string.Join(";", Nodes)})";
+			return str;
+		}
 	}
 }

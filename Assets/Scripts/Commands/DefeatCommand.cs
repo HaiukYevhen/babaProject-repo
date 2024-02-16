@@ -9,29 +9,30 @@ namespace Assets.Scripts.Commands
 {
 public class DefeatCommand : Command, IGameObjectAction
 	{
-
-	void Start()
-	{
-		codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
-	}
 		public void Apply(TreeNode node, CommandTarget target)
 		{
-            // codeManagerController.DestroyCommandTarget(target);
-            target.AddTag("Defeat");
-            target.AddComponent<Defeat>();
-            Debug.Log("Apply DefeatCommand");
+			Debug.Log("Apply Defeat");
+
+			if (!target.HasTag("Defeat"))
+			{
+				target.AddComponent<Defeat>();
+			}
+
+			target.AddTag("Defeat");
 		}
 		public void Undo(TreeNode node, CommandTarget target)
 		{
-			Debug.Log("Undo DefeatCommand");
-            target.RemoveTag("Defeat");
+			Debug.Log("Undo Defeat");
+			target.RemoveTag("Defeat");
 
-            var defeat = target.GetComponent<Defeat>();
-
-            if(defeat != null)
-            {
-                Destroy(defeat);
-            }
+			if (!target.HasTag("Defeat"))
+			{
+				var defeat = target.GetComponent<Defeat>();
+				if (defeat != null)
+				{
+					Destroy(defeat);
+				}
+			}
 		}
 	}
 }

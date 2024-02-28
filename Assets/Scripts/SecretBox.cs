@@ -20,14 +20,14 @@ public class SecretBox : CommandTarget
         {
             trueKey = true;
         }
-        if(target != null && target.HasTag("Key"))
+        if(target != null && (target.HasTag("pocketKey")))
         {
             Vector3 boxPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Instantiate(prefab, boxPosition, prefab.transform.rotation);
 
             codeManagerController.DestroyCommandTarget(this);
             // Destroy(gameObject);
-            target.RemoveTag("Key");
+            target.RemoveTag("pocketKey");
             if(trueKey)
             {
                 codeManagerController.DestroyCommandTarget(target);

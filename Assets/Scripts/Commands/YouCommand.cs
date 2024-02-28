@@ -19,25 +19,32 @@ namespace Assets.Scripts.Commands
 		public void Apply(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Apply You");
+			if(!target.HasTag("You"))
+			{
+				target.AddComponent<Player>();
+			}
 			target.AddTag("You");
-			target.AddComponent<Player>();
+			
 		}
 
 		public void Undo(TreeNode node, CommandTarget target)
 		{
 			Debug.Log("Undo You");
 			target.RemoveTag("You");
-			var player = target.GetComponent<Player>();
 
-			if (codeManagerController.cameraController.followTarget == target)
+			if(!target.HasTag("You"))
 			{
-				codeManagerController.cameraController.SwitchCameraFollowTarget();
+				if (codeManagerController.cameraController.followTarget == target)
+				{
+					codeManagerController.cameraController.SwitchCameraFollowTarget();
+				}
+				var player = target.GetComponent<Player>();
+				if (player != null)
+				{
+					Destroy(player);
+				}
 			}
 
-			if (player != null)
-			{
-				Destroy(player);
-			}
 		}
 	}
 }

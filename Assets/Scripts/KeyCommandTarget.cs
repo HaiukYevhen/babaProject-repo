@@ -16,9 +16,9 @@ public class KeyCommandTarget : CommandTarget
         var commandTarget = collider.gameObject.GetComponent<CommandTarget>();
         if(commandTarget != null && commandTarget.HasTag("You"))
         {
-            if (commandTarget != null && !commandTarget.HasTag("Key"))
+            if (commandTarget != null && !commandTarget.HasTag("pocketKey"))
             {
-                commandTarget.AddTag("Key");
+                commandTarget.AddTag("pocketKey");
 				codeManagerController.DestroyCommandTarget(this);
             }
         } 

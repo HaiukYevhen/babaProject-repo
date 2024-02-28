@@ -170,3 +170,5 @@ MonoBehaviour:
   tags:
   - name: Key
     count: 1
+  - name: pocketKey
+    count: 1

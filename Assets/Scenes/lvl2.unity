@@ -3609,10 +3609,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecretBox
       objectReference: {fileID: 0}
-    - target: {fileID: 8397921072763867604, guid: c91cbbe5dbe1d8f4c929c0883fe559e6, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 8266502590535859460, guid: f0e152ec46b131c40b9a098467b245df, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

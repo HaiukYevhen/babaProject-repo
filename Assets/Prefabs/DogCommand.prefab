@@ -146,15 +146,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.37
+      value: -11.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.36
+      value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
       propertyPath: m_LocalRotation.w
@@ -207,6 +207,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5474989158991541715}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1095390134573215356}
   m_SourcePrefab: {fileID: 100100000, guid: e1d055ce7df70dd40b9c76f0de91ee64, type: 3}
 --- !u!4 &1578367954310906016 stripped
 Transform:
@@ -284,3 +287,15 @@ MonoBehaviour:
   bottom: {fileID: 0}
   text: Dog
   prefab: {fileID: 221392418848201640, guid: f3862a0f24ac1c042be8d9f9e2ba2818, type: 3}
+--- !u!114 &1095390134573215356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2210332721077525018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204000b357e0db948abe1cc87e705848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

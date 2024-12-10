@@ -9,7 +9,7 @@ namespace Assets.Scripts.Commands
 {
 	public class YouCommand : Command, IGameObjectFilter, IGameObjectAction
 	{
-		public IEnumerable<CommandTarget> GetCommandTargets(TreeNode node)
+        public IEnumerable<CommandTarget> GetCommandTargets(TreeNode node)
 		{
 			return codeManagerController
 				.GetCommandTargets()
@@ -22,6 +22,7 @@ namespace Assets.Scripts.Commands
 			if(!target.HasTag("You"))
 			{
 				target.AddComponent<Player>();
+				target.AddComponent<PlayerPickUpDrop>();
 			}
 			target.AddTag("You");
 			
@@ -39,11 +40,17 @@ namespace Assets.Scripts.Commands
 					codeManagerController.cameraController.SwitchCameraFollowTarget();
 				}
 				var player = target.GetComponent<Player>();
-				if (player != null)
+                var PlayerPickUpDrop = target.GetComponent<PlayerPickUpDrop>();
+
+                if (PlayerPickUpDrop != null)
+                {
+                    Destroy(PlayerPickUpDrop);
+                }
+                if (player != null)
 				{
 					Destroy(player);
 				}
-			}
+            }
 
 		}
 	}

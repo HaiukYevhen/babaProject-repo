@@ -146,15 +146,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.31255114
+      value: -12.086536
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.5556803
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -207,6 +207,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1583995280128156426}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9173766662222954777}
   m_SourcePrefab: {fileID: 100100000, guid: a364c4b0c7104bc498f618268bd230db, type: 3}
 --- !u!4 &3799951979951804634 stripped
 Transform:
@@ -284,3 +287,15 @@ MonoBehaviour:
   bottom: {fileID: 0}
   text: Portal
   prefab: {fileID: 4061833504662961211, guid: eb0ff478797dc914486d8dd134abdf16, type: 3}
+--- !u!114 &9173766662222954777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609421702041012832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204000b357e0db948abe1cc87e705848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

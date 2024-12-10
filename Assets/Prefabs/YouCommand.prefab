@@ -150,15 +150,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2757435
+      value: 8.681509
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.99
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.239078
+      value: 0.048843384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}
       propertyPath: m_LocalRotation.w
@@ -211,6 +211,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a1bb5747274358c4dad546964876c784, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1554801201272197199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a1bb5747274358c4dad546964876c784, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 898949757170849887}
   m_SourcePrefab: {fileID: 100100000, guid: a1bb5747274358c4dad546964876c784, type: 3}
 --- !u!1 &8581706711143223068 stripped
 GameObject:
@@ -282,7 +285,18 @@ MonoBehaviour:
   top: {fileID: 0}
   bottom: {fileID: 0}
   text: You
-  gameObjectRock: {fileID: 0}
+--- !u!114 &898949757170849887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581706711143223068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204000b357e0db948abe1cc87e705848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8958654054078567846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1bb5747274358c4dad546964876c784, type: 3}

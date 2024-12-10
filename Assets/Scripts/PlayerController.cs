@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 		verticalInput = Input.GetAxis("Vertical");
 		MovementAnimation();
 		MovementDirection();
-	}
+    }
 
 	// Update is called once per frame
 	void FixedUpdate()

@@ -22,6 +22,8 @@ namespace Assets.Scripts.Commands
 			Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
 			codeManagerController.DestroyCommandTarget(target);
 			codeManagerController.InstantiateCommandTarget(prefab, targetPosition, prefab.transform.rotation);
+
+			if (target.GetComponent<Player>() != null) target.GetComponent<PlayerPickUpDrop>().ExtraDropObject();
 		}
 
 		public void Undo(TreeNode node, CommandTarget target)

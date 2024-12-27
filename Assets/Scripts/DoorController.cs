@@ -22,7 +22,7 @@ public class DoorController : CommandTarget
         {
             trueKey = true;
         }
-        if(target.HasTag("pocketKey") && doorOpen == false)
+        if(target != null && target.HasTag("pocketKey") && doorOpen == false)
         {
             gameObject.transform.position = new Vector3((gameObject.transform.position.x + correctPosition),gameObject.transform.position.y,gameObject.transform.position.z+0.7f );
             gameObject.transform.Rotate(0,90,0) ;

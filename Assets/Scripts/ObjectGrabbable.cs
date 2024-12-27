@@ -13,8 +13,12 @@ public class ObjectGrabbable : MonoBehaviour
     }
     public void Grab (Transform objectGrabPointTransform)
     {
-        this.objectGrabPointTransform = objectGrabPointTransform;
-        objectRigidbody.useGravity = false;
+        if (objectRigidbody.mass <= 10000)
+        {
+            this.objectGrabPointTransform = objectGrabPointTransform;
+            objectRigidbody.useGravity = false;
+        }
+        else  Debug.Log("its too heavy"); 
     }
     public void Drop() 
     {

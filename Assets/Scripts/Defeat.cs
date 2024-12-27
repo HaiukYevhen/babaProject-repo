@@ -16,6 +16,7 @@ public class Defeat : MonoBehaviour
         if(commandTarget != null && commandTarget.HasTag("You"))
         {
             codeManagerController.DestroyCommandTarget(commandTarget);
-        } 
+        }
+        if (collision.gameObject.GetComponent<Player>() != null) collision.gameObject.GetComponent<PlayerPickUpDrop>().ExtraDropObject();
     }
 }

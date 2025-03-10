@@ -25,8 +25,11 @@ namespace Assets.Scripts.Commands
 				target.AddComponent<PlayerPickUpDrop>();
 			}
 			target.AddTag("You");
-			
-		}
+
+			if(target.gameObject.layer == LayerMask.NameToLayer("Default"))
+				target.gameObject.layer = LayerMask.NameToLayer("Target");
+
+        }
 
 		public void Undo(TreeNode node, CommandTarget target)
 		{
@@ -50,6 +53,8 @@ namespace Assets.Scripts.Commands
 				{
 					Destroy(player);
 				}
+				if(target.gameObject.layer == LayerMask.NameToLayer("Target"))
+					target.gameObject.layer = LayerMask.NameToLayer("Default");
             }
 
 		}

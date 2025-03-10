@@ -5,19 +5,24 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.WSA;
 
-public class RocketCollision : CommandTarget
+public class RocketCollision : MonoBehaviour
 {
+    //: CommandTarget
     private PocketRocket pocketRocket;
     private TimerForDestruction timerForDestruction;
     public bool launchR = false;
+
+    private CodeManagerController codeManagerController;
     private void Start()
     {
+        codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+
         Transform child = transform.Cast<Transform>().FirstOrDefault(t => t.name == "BoomUp");
-        //Debug.Log("BooomUp Cild");
+        Debug.Log("BooomUp Cild");
         if (child != null)
         {
             child.gameObject.SetActive(false);
-            //Debug.Log("Start Found child: " + child.name);
+            Debug.Log("Start Found child: " + child.name);
         }
 
     }
@@ -30,7 +35,7 @@ public class RocketCollision : CommandTarget
         if (collision.gameObject.GetComponent<CommandTarget>() != null && collision.gameObject.GetComponent<CommandTarget>().HasTag("You")) ////if player toch
         {
             pocketRocket = GetComponentInParent<PocketRocket>();
-            Debug.Log(GetComponentInParent<PocketRocket>().launchRocketIs);
+            Debug.Log(GetComponentInParent<PocketRocket>()?.launchRocketIs);
         }
 
         if (launchR)
@@ -38,10 +43,10 @@ public class RocketCollision : CommandTarget
             CommandTarget commandTarget = collision.gameObject.GetComponent<CommandTarget>();
 
             Debug.Log("OnTriggerEnter: Rocket is launched");
-            Debug.Log(collision.name);
-
+            //Cracked
             if (collision.name == "Cube") 
             {
+                Debug.Log("1 " + collision.name);
                 Transform child = transform.Cast<Transform>().FirstOrDefault(t => t.name == "BoomUp");
                 if (child != null)
                 {
@@ -50,10 +55,12 @@ public class RocketCollision : CommandTarget
                     child.GetComponent<TimerForDestruction>().enabled = true;
                 }
                 Destroy(gameObject);
+                //codeManagerController?.DestroyCommandTarget(this);
             }
-
-            if (commandTarget != null && !commandTarget.HasTag("You") && collision.name != "Cube")
+            //commandTarget != null && !commandTarget.HasTag("You") && collision.name != "Cube" && !commandTarget.HasTag("RPG")
+            if ((commandTarget != null && !commandTarget.HasTag("You") && !commandTarget.HasTag("RPG")) || collision.name == "Cracked")
             {
+                Debug.Log("2 "+collision.name);
                 Transform child = transform.Cast<Transform>().FirstOrDefault(t => t.name == "BoomUp");
                 
                 if (child != null)
@@ -62,8 +69,10 @@ public class RocketCollision : CommandTarget
                     child.parent = null;
                     child.GetComponent<TimerForDestruction>().enabled = true;
                 }
+                if (commandTarget != null && commandTarget.HasTag("Door"))
+                    codeManagerController?.DestroyCommandTarget(commandTarget);
                 Destroy(collision.gameObject); 
-                Destroy(gameObject);          
+                Destroy(gameObject);
             }
             //else if (commandTarget == null && !collision.GetComponent<PocketRocket>())
             //{

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2184240740794201719
 Transform:
   m_ObjectHideFlags: 0
@@ -4994,6 +4994,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 073d7852a1290af4189f0ddb04205454, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5734671275793541675}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 073d7852a1290af4189f0ddb04205454, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1692222256289777511}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 073d7852a1290af4189f0ddb04205454, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8894142656707512032}
     - targetCorrespondingSourceObject: {fileID: -1036732338115730447, guid: 073d7852a1290af4189f0ddb04205454, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2421224392352589080}
@@ -5039,7 +5045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b99bb0282491646b62452b92de9a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
   launchR: 0
 --- !u!4 &4971049969047927381 stripped
 Transform:
@@ -5134,3 +5139,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   launchRocketIs: 0
+--- !u!114 &1692222256289777511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344862041118027151}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990694adcc4bb684f81622abc4ee0f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCount: 5
+--- !u!114 &8894142656707512032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344862041118027151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf7f7dd89031e7479217dcffd75ff22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - name: RPG
+    count: 1
+  - name: RocketLauncher
+    count: 1

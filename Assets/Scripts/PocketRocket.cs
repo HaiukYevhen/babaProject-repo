@@ -7,6 +7,7 @@ using System.Net.Sockets;
 
 public class PocketRocket : MonoBehaviour
 {
+
     // Start is called before the first frame update
     public float elapsedTime;
     private GameObject attachedTo; 
@@ -15,11 +16,17 @@ public class PocketRocket : MonoBehaviour
     BoxCollider boxCollider;
     RocketCollision rocketCollision;
     public bool launchRocketIs = false;
+    CommandTarget commandTarget;
+    CommandTarget commandTargetRocket;
+    private CodeManagerController codeManagerController;
 
     void Start()
     {
+        codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
+        commandTargetRocket = gameObject.GetComponent<CommandTarget>();
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+
 
         Transform child = transform.Cast<Transform>().FirstOrDefault(t => t.name == "Rocket");
         if (child != null)
@@ -59,15 +66,22 @@ public class PocketRocket : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        CommandTarget commandTarget = collider.GetComponent<CommandTarget>();
+        //var commandTarget = collision.gameObject.GetComponent<CommandTarget>();
+        commandTarget = collider.gameObject.GetComponent<CommandTarget>();
 
         if (commandTarget != null && commandTarget.HasTag("You"))
         {
             if (alreadyFollow == false)
             {
-                Follow(collider);
+                if (!commandTarget.HasTag("pocketRocket"))
+                {
+                    commandTarget.AddTag("pocketRocket");
 
-                alreadyFollow = true;
+                    Follow(collider);
+
+                    alreadyFollow = true;
+                }
+
             }
         }
 
@@ -119,15 +133,33 @@ public class PocketRocket : MonoBehaviour
         {
             rocketRb.velocity = forwardDirection * speed;
             elapsedTime += Time.deltaTime;
-
+            if (commandTarget != null && commandTarget.HasTag("pocketRocket"))
+            {
+                commandTarget.RemoveTag("pocketRocket");
+                //codeManagerController?.DestroyCommandTarget(this);
+            }
             yield return null;
+
         }
 
         if(rocketRb != null) 
         {
             rocketRb.velocity = Vector3.zero;
 
+
+            if (commandTarget != null && commandTarget.HasTag("pocketRocket"))
+            {
+                commandTarget.RemoveTag("pocketRocket");
+            }
+            if (commandTargetRocket != null && commandTargetRocket.HasTag("RPG"))
+            {
+                Debug.Log("RPG PocketRocket Destroy");
+                codeManagerController?.DestroyCommandTarget(commandTargetRocket);
+
+            }
             Destroy(rocket.gameObject);
+
+                
         }
 
     }

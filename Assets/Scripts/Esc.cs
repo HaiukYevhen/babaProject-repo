@@ -7,16 +7,24 @@ public class Esc : MonoBehaviour
     // Start is called before the first frame update
     private GameObject pausedMenu;
     public bool secondTime = false;
+
+    [SerializeField] private GameObject buttonEsc;
+    private PressBTN escPressScript;
     void Start()
     {
         pausedMenu = GameObject.Find("PausedMenu");
         pausedMenu.SetActive(false);
+
+        buttonEsc = GameObject.Find("EscButton");
+        //buttonEScriptActiv = buttonE.GetComponent<PressBTN>();
+        if (buttonEsc != null)
+            escPressScript = buttonEsc.GetComponent<PressBTN>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("escape"))
+        if (Input.GetKeyDown("escape") || (escPressScript != null && escPressScript.EButtonActivation() && escPressScript.GetButtonName() == "Esc"))
 		{
             EscMenu();
 		}

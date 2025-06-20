@@ -19,6 +19,8 @@ public class PocketRocket : MonoBehaviour
     CommandTarget commandTarget;
     CommandTarget commandTargetRocket;
     private CodeManagerController codeManagerController;
+    private PressBTN fPressScript;
+    [SerializeField] private GameObject buttonF;
 
     void Start()
     {
@@ -26,6 +28,10 @@ public class PocketRocket : MonoBehaviour
         commandTargetRocket = gameObject.GetComponent<CommandTarget>();
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+
+        buttonF = GameObject.Find("FButton");
+        if (buttonF != null)
+            fPressScript = buttonF.GetComponent<PressBTN>();
 
 
         Transform child = transform.Cast<Transform>().FirstOrDefault(t => t.name == "Rocket");
@@ -40,8 +46,13 @@ public class PocketRocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && alreadyFollow == true) 
+        if (Input.GetKeyDown(KeyCode.F)&&commandTarget != null)
+            commandTarget?.RemoveTag("pocketRocket");
+        if (alreadyFollow == true && (Input.GetKeyDown(KeyCode.F) || (fPressScript != null && fPressScript.GetButtonName() == "F" && fPressScript.EButtonActivation())) ) 
         {
+
+
+
             //1
             //Debug.Log(gameObject.transform.GetChild(1));
 
@@ -135,7 +146,7 @@ public class PocketRocket : MonoBehaviour
             elapsedTime += Time.deltaTime;
             if (commandTarget != null && commandTarget.HasTag("pocketRocket"))
             {
-                commandTarget.RemoveTag("pocketRocket");
+                //commandTarget.RemoveTag("pocketRocket");
                 //codeManagerController?.DestroyCommandTarget(this);
             }
             yield return null;
@@ -149,7 +160,7 @@ public class PocketRocket : MonoBehaviour
 
             if (commandTarget != null && commandTarget.HasTag("pocketRocket"))
             {
-                commandTarget.RemoveTag("pocketRocket");
+                //commandTarget.RemoveTag("pocketRocket");
             }
             if (commandTargetRocket != null && commandTargetRocket.HasTag("RPG"))
             {

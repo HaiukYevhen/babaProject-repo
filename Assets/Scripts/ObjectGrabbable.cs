@@ -17,6 +17,7 @@ public class ObjectGrabbable : MonoBehaviour
         {
             this.objectGrabPointTransform = objectGrabPointTransform;
             objectRigidbody.useGravity = false;
+            objectRigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
         }
         else  Debug.Log("its too heavy"); 
     }
@@ -24,15 +25,31 @@ public class ObjectGrabbable : MonoBehaviour
     {
         this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
+        objectRigidbody.velocity = Vector3.zero;
     }
 
     public void FixedUpdate()
     {
         if (objectGrabPointTransform != null) 
         {
-            float lerpSpeed = 10f;
-            Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
-            objectRigidbody.MovePosition(newPosition);
+            //float lerpSpeed = 10f;
+            //Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
+            //objectRigidbody.MovePosition(newPosition);
+
+            float followSpeed = 10f;
+
+            // ??? ?? ??????? ????? velocity
+            Vector3 direction = objectGrabPointTransform.position - transform.position;
+            Vector3 desiredVelocity = direction * followSpeed;
+
+            // ????????? ?????????, ???? ????????
+            float maxSpeed = 2f;
+            if (desiredVelocity.magnitude > maxSpeed)
+            {
+                desiredVelocity = desiredVelocity.normalized * maxSpeed;
+            }
+
+            objectRigidbody.velocity = desiredVelocity;
         }
     }
 }

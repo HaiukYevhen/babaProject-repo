@@ -10,12 +10,19 @@ public class CameraController : MonoBehaviour
     private GameObject camObj;
     private CinemachineVirtualCamera virtualCamera;
 
+    [SerializeField] private GameObject buttonSpace;
+    private PressBTN spacePressScript;
     void Start()
     {
 		codeManagerController = GameObject.Find("CodeManager").GetComponent<CodeManagerController>();
 		camObj = GameObject.Find("VirtualCamera1");
 		virtualCamera = camObj.GetComponent<CinemachineVirtualCamera>();
-	}
+
+        buttonSpace = GameObject.Find("SpaceButton");
+        //buttonEScriptActiv = buttonE.GetComponent<PressBTN>();
+        if (buttonSpace != null)
+            spacePressScript = buttonSpace.GetComponent<PressBTN>();
+    }
 
     public void SwitchCameraFollowTarget()
     {
@@ -41,8 +48,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetKeyDown("space"))
+		if (Input.GetKeyDown("space") || (spacePressScript != null && spacePressScript.EButtonActivation() && spacePressScript.GetButtonName() == "Space"))
 		{
+			Debug.Log("Y");
 			SwitchCameraFollowTarget();
 		}
     }

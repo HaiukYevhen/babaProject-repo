@@ -928,6 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondTime: 0
+  buttonEsc: {fileID: 0}
 --- !u!1001 &263703868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3511,7 +3512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f4bc5eb07a9394fbe6871c83f14c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameScene: Menu
+  nameScene: lvl7
 --- !u!114 &976472073
 MonoBehaviour:
   m_ObjectHideFlags: 0
